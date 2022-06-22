@@ -47,24 +47,23 @@ Java + Spring Boot
 -> Messages
 
 
--> POST http://end-point/messages 
+Create Message
+
+```
+curl --location --request POST 'http://localhost:8080/api/v1/message' \
+--header 'Content-Type: application/json' \
+--data-raw '{
+    "fromUserId": 3,
+    "toUserId": 2,
+    "message": "Hello 1234"
+}'
+
+```
 
 
- {
 
-	"from": userId,
-      "To": userId,
-      Message: ""
- }
+GET Messages
 
-
-
-
--> GET http://end-point/messages?from=userId&to=userId
-
- [{
-
-	"from": userId,
-      "to": userId,
-      Message: ""
- }]
+```
+curl --location --request GET 'http://localhost:8080/api/v1/message?fromId=1&toId=2'
+```
